@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9631=r_op)_hqvh7c5f(0rsuvw4r6k227q10d4w14n!wi)a4na
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stackoverflow.eu-north-1.elasticbeanstalk.com' , '*']
+ALLOWED_HOSTS = ['stackoverflow.eu-north-1.elasticbeanstalk.com' , 'http://stackoverflow.eu-north-1.elasticbeanstalk.com/']
 
 
 # Application definition
