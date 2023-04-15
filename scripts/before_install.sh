@@ -14,10 +14,8 @@ sudo ./install auto
 
 # Update OS & install Python3
 sudo yum update -y
-sudo yum install -y python3 python3-pip python3-devel
-pip3 install --user --upgrade virtualenv
+sudo yum install -y python python-pip python-devel
+pip install --user --upgrade virtualenv
 pip install Django
-pip3 install pysqlite3 && pip3 install pysqlite3-binary && \
-sed -i 's/from sqlite3 import dbapi2 as Database/import pysqlite3.dbapi2 as Database/' /opt/python/current/app/django/db/backends/sqlite3/base.py
 # Delete app
 sudo rm -rf /home/ec2-user/django-aws_cicd
