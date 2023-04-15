@@ -16,7 +16,6 @@ sudo ./install auto
 sudo yum update -y
 sudo yum install -y python3 python3-pip python3-devel
 pip3 install --user --upgrade virtualenv
-pip install Django
-sudo yum install sqlite
+pip install django==2.1.15
 # Delete app
 sudo rm -rf /home/ec2-user/django-aws_cicd
