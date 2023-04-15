@@ -6,7 +6,7 @@ from client.models import AddpostModel
 # Create your views here.
 
 
-def test():
+def test(request):
     return render(request, 'text.html')
 
 def index(request):
