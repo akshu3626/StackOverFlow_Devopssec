@@ -1,15 +1,10 @@
-version: 0.2
-phases:
-    install:
-        runtime-versions:
-            python: 3.9
-        commands:
-            - pip3 install --upgrade pip
-            # Install dependencies needed for running the static analysis
-            - pip3 install -r requirements.txt
-    pre_build:
-        commands:
-            - python --version
-artifacts:
-    files:
-        - '**/*'
+version: 0.1
+os: linux
+files:
+  - source: stackoverflow
+    destination: /home/ec2-user/django-aws_cicd
+hooks:
+  BeforeInstall:
+      - location: scripts/before_install.sh
+  AfterInstall:
+      - location: scripts/after_install.sh
