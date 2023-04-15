@@ -6,6 +6,9 @@ from client.models import AddpostModel
 # Create your views here.
 
 
+def test():
+    return render(request, 'text.html')
+
 def index(request):
     Allposts=AddpostModel.objects.all()
     return render(request, 'index.html' , {'Allposts' : Allposts})
