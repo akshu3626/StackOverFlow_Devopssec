@@ -15,6 +15,7 @@ source venv/bin/activate
 # Install requirements.txt
 pip install -r /home/ec2-user/django-aws_cicd/requirements.txt
 
+pip install mysqlclient
 # Run migrations
 python3 manage.py makemigrations
 python3 manage.py migrate
