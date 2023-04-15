@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 
-# clean codedeploy-agent files for a fresh install
-sudo rm -rf /home/ubuntu/install
+# Clean CodeDeploy agent files for a fresh install
+sudo rm -rf /home/ec2-user/install
 
-# install CodeDeploy agent
-sudo apt-get -y update
-sudo apt-get -y install ruby
-sudo apt-get -y install wget
-cd /home/ubuntu
-wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
-sudo chmod +x ./install 
+# Install CodeDeploy agent
+sudo yum -y update
+sudo yum -y install ruby
+sudo yum -y install wget
+cd /home/ec2-user
+wget https://aws-codedeploy-eu-north-1.s3.amazonaws.com/latest/install
+sudo chmod +x ./install
 sudo ./install auto
 
-# update os & install python3
-sudo apt-get update
-sudo apt-get install -y python3 python3-dev python3-pip python3-venv
-pip install --user --upgrade virtualenv
+# Update OS & install Python3
+sudo yum update -y
+sudo yum install -y python3 python3-pip python3-devel
+pip3 install --user --upgrade virtualenv
+pip install Django
 
-# delete app
-sudo rm -rf /home/ubuntu/django-aws_cicd
+# Delete app
+sudo rm -rf /home/ec2-user/django-aws_cicd
