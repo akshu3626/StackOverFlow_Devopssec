@@ -1,10 +1,30 @@
-version: 0.1
-os: linux
-files:
-  - source: stackoverflow
-    destination: /home/ec2-user/django-aws_cicd
-hooks:
-  BeforeInstall:
-      - location: scripts/before_install.sh
-  AfterInstall:
-      - location: scripts/after_install.sh
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      # Install virtualenv and upgrade pip
+      pip install virtualenv
+      python -m pip install --upgrade pip
+      # Create a virtual environment
+      virtualenv myenv
+      source myenv/bin/activate
+      # Install required packages
+      yum update -y
+      yum install python3 python3-devel python3-pip gcc postgresql-devel -y
+      python3 -m pip install -r requirements.txt
+  build:
+    commands:
+      # Collect static files
+      python manage.py collectstatic --noinput
+      # Create the database tables
+      python manage.py migrate --noinput
+  post_build:
+    commands:
+      # Restart the application server
+      systemctl restart httpd
+
+artifacts:
+  files:
+    - '**/*'
+  name: stackoverflow
