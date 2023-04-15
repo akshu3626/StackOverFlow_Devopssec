@@ -15,5 +15,9 @@ source venv/bin/activate
 # Install requirements.txt
 pip install -r /home/ec2-user/django-aws_cicd/requirements.txt
 
+# Run migrations
+python3 manage.py makemigrations
+python3 manage.py migrate
+
 # Run server
 screen -d -m python3 manage.py runserver 0:8000
