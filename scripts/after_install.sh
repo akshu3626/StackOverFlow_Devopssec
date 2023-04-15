@@ -1,24 +1,20 @@
 #!/usr/bin/env bash
 
-# Kill any servers that may be running in the background
+# kill any servers that may be running in the background 
 sudo pkill -f runserver
 
-# Kill frontend servers if you are deploying any frontend
-sudo pkill -f tailwind
-sudo pkill -f node
-cd /home/ec2-user/django-aws_cicd/
+# kill frontend servers if you are deploying any frontend
+# sudo pkill -f tailwind
+# sudo pkill -f node
 
-# Activate virtual environment
+cd /home/ubuntu/django-aws_cicd/
+
+# activate virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
-# Install requirements.txt
-pip install -r /home/ec2-user/django-aws_cicd/requirements.txt
+install requirements.txt
+pip install -r /home/ubuntu/django-aws_cicd/requirements.txt
 
-pip install mysqlclient
-# Run migrations
-python3 manage.py makemigrations
-python3 manage.py migrate
-
-# Run server
+# run server
 screen -d -m python3 manage.py runserver 0:8000
