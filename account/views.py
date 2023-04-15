@@ -7,7 +7,7 @@ from client.models import AddpostModel
 
 
 def test(request):
-    return render(request, 'text.html')
+    return render(request, 'test.html')
 
 def index(request):
     Allposts=AddpostModel.objects.all()
