@@ -1,31 +1,36 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    DJANGO_SETTINGS_MODULE: config.settings.test
+    SECRET_KEY: nosecret
+    DATABASE_DEFAULT_URL: sqlite:///db1.sqlite3
+    DATABASE_STREAMDATA_URL: sqlite:///db2.sqlite3
+    STREAM_INCOMING_PRIVATE_KEY: changeme
+    STREAM_INCOMING_PUBLIC_KEY: changeme
+    GOOGLE_API_KEY: changeme
+    OPBEAT_ENABLED: False
+
 phases:
-  install:
-    runtime-versions:
-      python: 3.7
-    commands:
-      - echo "Installing dependencies"
-      - python3 -m venv env
-      - chmod +x ./env/bin/activate
-      - pip install --upgrade pip --disable-pip-version-check 
-      - pip install -r requirements.txt
-  build:
-    commands:
-      - echo "Running Django migrations"
-      - python manage.py migrate --traceback
-      - echo "Collecting static files"
-      - python manage.py collectstatic --noinput
-      #- echo "loading data from project_dump"
-      #- python manage.py loaddata project_dump.json
-    commands:
-      - echo Build completed on `date`
-
- 
-
-artifacts:
-    files:
-      - '**/*'
-
- 
-
-
-#- pip install -r requirements.txt pylint
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven curl wget
+      - apt-get purge nodejs npm
+      - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+      - apt-get install -y nodejs
+      - node --version
+  pre_build:
+    commands:
+      - pip install -r server/requirements/development.txt
+      - cd webapp && npm install & cd ..
+      - cd webapp && gulp && cd ..
+      - cd server && python manage.py collectstatic --noinput && cd ..
+  build:
+    commands:
+      - cd server && coverage run -m py.test > test.out && cd ..
+      - cd server && coverage report --include=apps/* > coverage.out && cd ..
+      - cd server && coverage html --include=apps/* && cd ..
+  post_build:
+    commands:
+      - echo Build completed on `date`
