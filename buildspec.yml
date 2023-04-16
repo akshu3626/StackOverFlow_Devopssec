@@ -17,9 +17,7 @@ phases:
       - yum update -y
   pre_build:
     commands:
-      - pip install -r server/requirements/development.txt
-      - cd webapp && npm install & cd ..
-      - cd webapp && gulp && cd ..
+      - pip install -r requirements.txt
       - cd server && python manage.py collectstatic --noinput && cd ..
   build:
     commands:
