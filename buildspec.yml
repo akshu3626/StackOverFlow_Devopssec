@@ -1,29 +1,17 @@
-version: 0.1
-
-environment_variables:
-  plaintext:
-    DJANGO_SETTINGS_MODULE: config.settings.test
-    SECRET_KEY: nosecret
-    DATABASE_DEFAULT_URL: sqlite:///db1.sqlite3
-    DATABASE_STREAMDATA_URL: sqlite:///db2.sqlite3
-    STREAM_INCOMING_PRIVATE_KEY: changeme
-    STREAM_INCOMING_PUBLIC_KEY: changeme
-    GOOGLE_API_KEY: changeme
-    OPBEAT_ENABLED: False
+version: 0.2
 
 phases:
-  install:
-    commands:
-      - yum update -y
-  pre_build:
-    commands:
-      - pip install -r requirements.txt
-      - cd server && python manage.py collectstatic --noinput && cd ..
-  build:
-    commands:
-      - cd server && coverage run -m py.test > test.out && cd ..
-      - cd server && coverage report --include=apps/* > coverage.out && cd ..
-      - cd server && coverage html --include=apps/* && cd ..
-  post_build:
-    commands:
-      - echo Build completed on `date`
+    install:
+        runtime-versions:
+            python: 3.7
+        commands:
+            - pip install --upgrade pip
+        # Install dependencies needed for running the static analysis
+            - pip install -r requirements.txt pylint
+    pre_build:
+        commands:
+            - python --version
+            - pylint --disable=E0611,E0401,E1101,W0621,C0103,W0622,W0613,W0702,W0612,C0326,C0303,C0115,C0304,C0114,C0301,C0410,W0611 *.py **/*.py
+artifacts:
+    files:
+        - '**/*'
