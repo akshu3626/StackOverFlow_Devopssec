@@ -15,6 +15,6 @@ phases:
       - pylint --disable=E0611,E0401,E1101,W0621,C0103,W0622,W0613,W0702,W0612,C0326,C0303,C0115,C0304,C0114,C0301,C0410,W0611 *.py **/*.py || true
       - sonar-scanner -Dsonar.login=b9a1dc476bee0c7d8c2d92ef342d7e36f6bb4f2c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=devopsec-akshay -Dsonar.organization=Devopsec-akshay -DgeneratePom=true
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=Devopsec-akshay >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=devopsec-akshay >result.json
       - cat result.json
       - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
