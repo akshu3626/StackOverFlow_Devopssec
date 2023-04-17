@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  pre_build:
+    commands:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt pylint
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+      - unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
+      - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
+  build:
+    commands:
+      - pylint --disable=E0611,E0401,E1101,W0621,C0103,W0622,W0613,W0702,W0612,C0326,C0303,C0115,C0304,C0114,C0301,C0410,W0611 *.py **/*.py || true
+      - sonar-scanner -Dsonar.login=b9a1dc476bee0c7d8c2d92ef342d7e36f6bb4f2c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Devopsec-akshay -Dsonar.organization=Devopsec-akshay -DgeneratePom=true
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=Devopsec-akshay >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
