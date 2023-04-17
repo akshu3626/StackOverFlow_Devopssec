@@ -3,30 +3,35 @@
 {% block content %}
 
 
-<div class="content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <!-- <div class="col-md-6 order-md-2">
-          <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-        </div> -->
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-12">
-              <div class="form-block">
-                  <div class="mb-4">
-                </div>
 
-              <span class="mb-0 text-muted">
+<div class="login-area ptb-100">
+      <div class="container">
+        <div class="user-form">
+          <div class="row">
+            
+    
+            
+            <span class="mb-0 text-muted">
                 {% if msg %}
-                    {{ msg | safe }}
+                    
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      {{ msg | safe }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 {% else %}
-                    Login page
+                   
                 {% endif %}
               </span>
-                <form  method="post">
+            
+        
+
+
+
+
+              <form class="form-group"  method="post">
                     {% csrf_token %}
                   <div class="form-group first">
-                    <label for="username">Username</label>
+                    <label for="username">Username test</label>
                       {{ form.username }}
                   </div>
                   <div class="form-group last mb-4">
@@ -44,15 +49,14 @@
 
                   <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
                 </form>
-              </div>
+    
+            <div class="col-12">
+              <p class="create">Don't have an account? <a href="sign-up.html">Sign Up</a></p>  
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
-  </div>
     
 
 {% endblock %}

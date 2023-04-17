@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+      {% for Question in viewAllquestions %}
+     <div class="single-qa-box like-dislike">
+                    <div class="d-flex">
+                      <div class="link-unlike flex-shrink-0">
+                        <a href="user.html">
+                          <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="Image">
+                        </a>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count like">
+                            <i class="ri-thumb-up-fill"></i>
+                            <span>0</span>
+                          </button>
+                        </div>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count dislike">
+                          <i class="ri-thumb-down-fill"></i>
+                            <span>0</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <ul class="graphic-design">
+                          <li>
+                            <a href="#">akshay joshi</a>
+                          </li>
+                        </ul>
+
+                        <h3>
+                          <a href="queations-details.html">
+                           What is the requirement of a student's e-book for conducting educational activities?
+                          </a>
+                        </h3>
+
+                        <p> test</p>
+
+                        HTML , CSS WordPress 
+                     <div class="d-flex justify-content-between align-items-center">
+                          <ul class="anser-list">
+                            <li>
+                              <a href="#">
+                                0 Vote
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                1 Answer
+                              </a>
+                            </li>
+                            
+                          </ul>
+
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      {% endfor %}
+   </div>
+      
+      
+{% endblock %}

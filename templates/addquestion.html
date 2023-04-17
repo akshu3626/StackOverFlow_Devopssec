@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+    
+      {% include 'message.html' %}
+
+    <form method="POST" class="post-form" >  
+        {% csrf_token %}  
+        <div class="input-group mb-3">
+          <input type="text" required="required" class="form-control" placeholder="Question test" name="question">
+        </div>
+        
+        
+        <div class="input-group mb-3">
+          <input type="text" required="required" class="form-control" placeholder="Please add tag using common for example (HTML5 , CSS3)" name="tags">
+        </div>
+        
+        
+        <div class="input-group mb-3">
+         <div class="form-floating">
+              <textarea required="required" class="form-control" placeholder="Question description" name="question_des" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Question description</label>
+          </div>
+        </div>
+        
+        <input type="hidden" name="user_role" value="{{ current_user.role }}"/>
+        <input type="hidden" name="user_id" value="{{ current_user.id }}"/>
+        <input type="hidden" name="username" value="{{ current_user.first_name }} {{ current_user.last_name }}"/>
+        
+        <input type="submit" class="btn btn-outline-success" value="Submit"/>
+    </form>
+    
+</div>
+
+
+{% endblock %}

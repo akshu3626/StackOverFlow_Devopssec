@@ -4,133 +4,441 @@
 {% block content %}
 
 
-   <section class="banner">
+   <section class="banner-1">
+
+    <div class="main-content-area ptb-100">
       <div class="container">
-        
-        <div class="banner-content">
-          <div class="banner-text">
-            <h1>Find the perfect freelance services for your business</h1>
-            <p>Work with talented people at the most affordable price to get the most out of your time and cost</p>
-          </div>
-            <div class="banner-search">
-              <div class="search-inner">
-                <form method="post" action="" class="search-form">
-                  <input placeholder="What are you looking for?" type="text" name="keyword" class="form-control" >
-                  <select class="form-select" aria-label="Default select example">
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  <input type="submit" class="btn btn-danger" name="search" value="search">
-                </form>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="sidebar-menu-wrap">
+              <div class="sidemenu-wrap d-flex justify-content-between align-items-center">
+                <h3>Pify Sidebar Menu</h3>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="ri-menu-line"></i>
+                </button>
               </div>
-          </div>
-
-          
-          
-        </div>
-
-      </div>
-      
-    </section>
-
-
-    <section class="home-second mt-5">
-      
-      <div class="container">
-        <h2 class="sec-title">Need something done?</h2>
-        <p class="sec-subtitle">Most viewed and all-time top-selling services</p>
-      
-
-      <div class="row">
-        <div class="col-md-3 mt-5 mb-5">
-          <div class="services-blub">
-            <i class="fa-solid fa-image-portrait"></i>
-            <h3 class="mt-2 mb-2">Post a job</h3>
-            <p class="mt-2 mb-2">It’s free and easy to post a job. Simply fill in a title, description.</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 mt-5 mb-5">
-          <div class="services-blub">
-            <i class="fa-solid fa-laptop-code"></i>
-            <h3 class="mt-2 mb-2">Choose freelancers</h3>
-            <p class="mt-2 mb-2">It’s free and easy to post a job. Simply fill in a title, description.</p>
-          </div>
-        </div>
-
-
-        <div class="col-md-3 mt-5 mb-5">
-          <div class="services-blub">
-            <i class="fa-brands fa-cc-apple-pay"></i>
-            <h3 class="mt-2 mb-2">Pay safely</h3>
-            <p class="mt-2 mb-2">It’s free and easy to post a job. Simply fill in a title, description.</p>
-          </div>
-        </div>
-
-
-        <div class="col-md-3 mt-5 mb-5">
-          <div class="services-blub">
-            <i class="fa-solid fa-handshake-angle"></i>
-            <h3 class="mt-2 mb-2">We’re here to help</h3>
-            <p class="mt-2 mb-2">It’s free and easy to post a job. Simply fill in a title, description.</p>
-          </div>
-        </div>
-      </div>
-</div>
-    </section>
-
-
-    <section class="home-third mt-5">
-      
-      <div class="container">
-        <h2 class="sec-title">Browse talent by category</h2>
-        <p class="sec-subtitle">Get some Inspirations from 1800+ skills</p>
-      
-
-      <div id="owl-demo1" class="owl-carousel owl-theme">
                 
-        {% for Allposts in Allposts %}
-        <div class="item">
-          
-          <div class="card" style="width: 18rem;">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="36%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-            <div class="card-body">
-              <h5 class="card-title">{{Allposts.post_title}}</h5>
-              <p class="card-text">{{Allposts.post_content | truncatechars:90}}</p>
-              <a href="#" class="btn btn-primary">View Details</a>
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div class="left-sidebar">
+                    <nav class="sidebar-nav" data-simplebar="">
+                      <ul id="sidebar-menu" class="sidebar-menu metismenu">
+                        <li class="mm-active">
+                          <a href="/" class="box-style active" aria-expanded="true">
+                            <span class="menu-title">
+                              <i class="ri-home-8-line"></i>
+                              Home
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="has-arrow box-style" aria-expanded="false">
+                            <i class="ri-question-line"></i>
+                            <span class="menu-title">
+                              Questions
+                            </span>
+                          </a>
+                          <ul class="sidemenu-nav-second-level mm-collapse">
+                            <li>
+                              <a href="all-queations.html">
+                                <span class="menu-title">All questions</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="queations-details.html">
+                                <span class="menu-title">questions details</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li> 
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
+
+          <div class="col-lg-6">
+            <div class="middull-content">
+              
+
+              <ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="false">
+                    Recent Questions
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="most-answered-tab" data-bs-toggle="tab" data-bs-target="#most-answered" type="button" role="tab" aria-controls="most-answered" aria-selected="true">
+                    Most Answered 
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="unanswered-question-tab" data-bs-toggle="tab" data-bs-target="#unanswered-question" type="button" role="tab" aria-controls="unanswered-question" aria-selected="false">
+                    Unanswered Question
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="featured-question-tab" data-bs-toggle="tab" data-bs-target="#featured-question" type="button" role="tab" aria-controls="featured-question" aria-selected="false">
+                    Featured Question
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="recent-questions" role="tabpanel" aria-labelledby="recent-questions-tab">
+
+                  {% for Allquestion in Allquestions %}  
+                  <div class="single-qa-box like-dislike">
+                    <div class="d-flex">
+                      <div class="link-unlike flex-shrink-0">
+                        <a href="user.html">
+                          <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="Image">
+                        </a>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count like">
+                            <i class="ri-thumb-up-fill"></i>
+                            <span>{{Allquestion.votecount}}</span>
+                          </button>
+                        </div>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count dislike">
+                          <i class="ri-thumb-down-fill"></i>
+                            <span>{{Allquestion.dislike}}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <ul class="graphic-design">
+                          <li>
+                            <a href="#">{{Allquestion.username}}</a>
+                          </li>
+                        </ul>
+
+                        <h3>
+                          <a href="queations-details.html">
+                           {{Allquestion.question}}
+                          </a>
+                        </h3>
+
+                        <p> {{Allquestion.question_des}}</p>
+
+                        {{Allquestion.tags}}
+                     <div class="d-flex justify-content-between align-items-center">
+                          <ul class="anser-list">
+                            <li>
+                              <a href="#">
+                                {{Allquestion.votecount}} Vote
+                              </a>
+                            </li>
+                            <li>
+                              <a href="most-answered.html">
+                                1 Answer
+                              </a>
+                            </li>
+                            
+                          </ul>
+
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+
+                </div>
+
+                <div class="tab-pane fade" id="most-answered" role="tabpanel" aria-labelledby="most-answered-tab">
+                  {% for Allquestion in Allquestions %}  
+                  <div class="single-qa-box like-dislike">
+                    <div class="d-flex">
+                      <div class="link-unlike flex-shrink-0">
+                        <a href="user.html">
+                          <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="Image">
+                        </a>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count like">
+                            <i class="ri-thumb-up-fill"></i>
+                            <span>{{Allquestion.votecount}}</span>
+                          </button>
+                        </div>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count dislike">
+                          <i class="ri-thumb-down-fill"></i>
+                            <span>{{Allquestion.dislike}}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <ul class="graphic-design">
+                          <li>
+                            <a href="#">{{Allquestion.username}}</a>
+                          </li>
+                        </ul>
+
+                        <h3>
+                          <a href="queations-details.html">
+                           {{Allquestion.question}}
+                          </a>
+                        </h3>
+
+                        <p> {{Allquestion.question_des}}</p>
+
+                        {{Allquestion.tags}}
+                     <div class="d-flex justify-content-between align-items-center">
+                          <ul class="anser-list">
+                            <li>
+                              <a href="#">
+                                {{Allquestion.votecount}} Vote
+                              </a>
+                            </li>
+                            <li>
+                              <a href="most-answered.html">
+                                1 Answer
+                              </a>
+                            </li>
+                            
+                          </ul>
+
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+
+                <div class="tab-pane fade" id="unanswered-question" role="tabpanel" aria-labelledby="unanswered-question-tab">
+                   {% for Allquestion in Allquestions %}  
+                  <div class="single-qa-box like-dislike">
+                    <div class="d-flex">
+                      <div class="link-unlike flex-shrink-0">
+                        <a href="user.html">
+                          <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="Image">
+                        </a>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count like">
+                            <i class="ri-thumb-up-fill"></i>
+                            <span>{{Allquestion.votecount}}</span>
+                          </button>
+                        </div>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count dislike">
+                          <i class="ri-thumb-down-fill"></i>
+                            <span>{{Allquestion.dislike}}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <ul class="graphic-design">
+                          <li>
+                            <a href="#">{{Allquestion.username}}</a>
+                          </li>
+                        </ul>
+
+                        <h3>
+                          <a href="queations-details.html">
+                           {{Allquestion.question}}
+                          </a>
+                        </h3>
+
+                        <p> {{Allquestion.question_des}}</p>
+
+                        {{Allquestion.tags}}
+                     <div class="d-flex justify-content-between align-items-center">
+                          <ul class="anser-list">
+                            <li>
+                              <a href="#">
+                                {{Allquestion.votecount}} Vote
+                              </a>
+                            </li>
+                            <li>
+                              <a href="most-answered.html">
+                                1 Answer
+                              </a>
+                            </li>
+                            
+                          </ul>
+
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+
+                <div class="tab-pane fade" id="featured-question" role="tabpanel" aria-labelledby="featured-question-tab">
+               
+                    {% for Allquestion in Allquestions %}  
+                  <div class="single-qa-box like-dislike">
+                    <div class="d-flex">
+                      <div class="link-unlike flex-shrink-0">
+                        <a href="user.html">
+                          <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg" alt="Image">
+                        </a>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count like">
+                            <i class="ri-thumb-up-fill"></i>
+                            <span>{{Allquestion.votecount}}</span>
+                          </button>
+                        </div>
+
+                        <div class="donet-like-list">
+                          <button class="like-unlink-count dislike">
+                          <i class="ri-thumb-down-fill"></i>
+                            <span>{{Allquestion.dislike}}</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <ul class="graphic-design">
+                          <li>
+                            <a href="#">{{Allquestion.username}}</a>
+                          </li>
+                        </ul>
+
+                        <h3>
+                          <a href="queations-details.html">
+                           {{Allquestion.question}}
+                          </a>
+                        </h3>
+
+                        <p> {{Allquestion.question_des}}</p>
+
+                        {{Allquestion.tags}}
+                     <div class="d-flex justify-content-between align-items-center">
+                          <ul class="anser-list">
+                            <li>
+                              <a href="#">
+                                {{Allquestion.votecount}} Vote
+                              </a>
+                            </li>
+                            <li>
+                              <a href="most-answered.html">
+                                1 Answer
+                              </a>
+                            </li>
+                            
+                          </ul>
+
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="right-siderbar">
+              <div class="right-siderbar-common">
+                <a href="ask-questions.html" class="default-btn">
+                  Ask a question
+                </a>
+              </div>
+
+              
+
+              <div class="right-siderbar-common">
+                <div class="discussions">
+                  <h3>
+                    <i class="ri-speaker-line"></i>
+                    Top Discussions
+                  </h3>
+
+                  <ul>
+                    <li>
+                      <a href="most-answered.html">
+                        The idea of how I will share my profile on social sites
+                      </a>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        Discuss the rules for maintaining all the employees in the company
+                      </a>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        The best way to choose between a job and a business
+                      </a>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        Which is the most important UIUX in terms of design?
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              
+
+              <div class="right-siderbar-common">
+                <div class="recent-post">
+                  <h3>
+                    <i class="ri-discuss-line"></i>
+                    Recent post
+                  </h3>
+
+                  <ul>
+                    <li>
+                      <a href="most-answered.html">
+                        What could be UX design software?
+                      </a>
+                      <p>8 hours ago by <a href="user.html">Alan Woodson</a></p>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        All the new features that have been used in Windows 11
+                      </a>
+                      <p>11 hours ago by <a href="user.html">Juan McPhail</a></p>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        What is the most important thing in learning design?
+                      </a>
+                      <p>11 hours ago by <a href="user.html">Vickie White</a></p>
+                    </li>
+                    <li>
+                      <a href="most-answered.html">
+                        Which language is the most popular in the web right now?
+                      </a>
+                      <p>13 hours ago by <a href="user.html">Jose Merz</a></p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+            </div>
+          </div>
         </div>
-        {% endfor %}
-       
-        
       </div>
-
-      </div>
-
-    </section>
-
-
-     <section class="home-fourth mt-5">
-      
-      <div class="container">
-        <h2 class="sec-title">Highest Rated Freelancers</h2>
-        <p class="sec-subtitle">Lorem ipsum dolor sit amet, consectetur.</p>
-
-        <div id="owl-demo2" class="owl-carousel owl-theme">
-                
-        <div class="item"><img src="assets/owl1.jpg" alt="Owl Image"></div>
-        <div class="item"><img src="assets/owl1.jpg" alt="Owl Image"></div>
-        <div class="item"><img src="assets/owl1.jpg" alt="Owl Image"></div>
-        <div class="item"><img src="assets/owl1.jpg" alt="Owl Image"></div>
-        <div class="item"><img src="assets/owl1.jpg" alt="Owl Image"></div>
-        
-      </div>
-      </div>
-
-    </section>
+    </div>
+      </section>
 
 {% endblock %}

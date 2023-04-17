@@ -5,67 +5,157 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stackoverflow</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Stackoverflowsss</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Links Of CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/metismenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/editor.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static '/assets/images/favicon.png">
     <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
   </head>
   <body>
 
 
 
-    <header class="header">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'index' %}">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-        </li>
-        <li class="nav-item">
-            {% if user.is_authenticated %}
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
-           {% endif %}
-        </li>
-        
-         {% if user.is_authenticated and user.role == "Client" %}
-         <li class="nav-item">
-           <a class="nav-link" href="{% url 'account' %}">Account</a>
-        </li>
-         {% endif %}
-        <li class="nav-item {% if user.is_authenticated %} d-none  {% endif %} ">
-          <a class="nav-link" href="{% url 'signup' %}">Signup</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+   <header class="header">
+     <div class="navbar-area">
+      <div class="mobile-responsive-nav">
+        <div class="container">
+          <div class="mobile-responsive-menu">
+            <div class="logo">
+              <a href="index.html">
+                <img src="/assets/images/logo.png" alt="logo">
+                
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="desktop-nav">
+        <div class="container">
+          <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="/">
+              StackoverFlow
+            </a>
+
+            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                  <a href="/" class="nav-link active">
+                    Home 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    About Us
+                  </a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="#" class="nav-link dropdown-toggle">
+                    Account            
+                  </a>
+
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">View Question</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'addquestion' %}" class="nav-link">Add Question</a>
+                    </li>
+                  </ul>
+                </li>
+                 {% endif %}
+
+                
+
+                
+              </ul>
+
+              <div class="others-options">
+                <ul>
+                  
+                  <li>
+                  
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="active">
+                      Log out
+                    </a>
+                     {% else %}
+                     <a href="{% url 'login' %}" class="active">
+                      Log in  
+                    </a>
+                  {% endif %}
+                  </li>
+                  <li>
+                    <a href="{% url 'signup' %}">
+                      Sign up
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="others-option-for-responsive">
+        <div class="container">
+          <div class="dot-menu">
+            <div class="inner">
+              <div class="circle circle-one"></div>
+              <div class="circle circle-two"></div>
+              <div class="circle circle-three"></div>
+            </div>
+          </div>
+          
+          <div class="container">
+            <div class="option-inner">
+              <div class="others-options justify-content-center d-flex align-items-center">
+                <ul>
+                  <li>
+                    <form class="search-box">
+                      <input type="text" name="Search" placeholder="Search for..." class="form-control">
+                  
+                      <button type="submit" class="search-btn">
+                        <i class="ri-search-line"></i>
+                      </button>
+                    </form>
+                  </li>
+                  <li>
+                    <a href="log-in.html" data-bs-toggle="modal" data-bs-target="#exampleModal-3" class="active">
+                      Log in  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="sign-up.html" data-bs-toggle="modal" data-bs-target="#exampleModal-4">
+                      Sign up
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
     </header>
 
 
@@ -74,11 +164,17 @@
 {{ request.get_full_path }}  
     {%  endblock%}
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="{% static '/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static '/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/assets/js/meanmenu.min.js' %}"></script>
+    <script src="{% static '/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/assets/js/form-validator.min.js' %}"></script>
+    <script src="{% static '/assets/js/contact-form-script.js' %}"></script>
+    <script src="{% static '/assets/js/ajaxchimp.min.js' %}"></script>
+    <script src="{% static '/assets/js/metismenu.js' %}"></script>
+    <script src="{% static '/assets/js/editor.js' %}"></script>
+    <script src="{% static '/assets/js/like-dislike.min.js' %}"></script>
+    <script src="{% static '/assets/js/custom.js' %}"></script>
     <script type="text/javascript" src="{% static '/custom.js' %}"></script>
   </body>
 </html>

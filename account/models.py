@@ -5,12 +5,12 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    is_client = "Client"
-    is_freelancer = "Freelancer"
+    is_developer = "Developer"
+    is_user = "User"
     
     ROLE = [
-        (is_client, "Client"),
-        (is_freelancer, "Freelancer"),
+        (is_developer, "Developer"),
+        (is_user, "User"),
     ]
     role = models.CharField(
         max_length=50,

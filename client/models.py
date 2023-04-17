@@ -18,4 +18,22 @@ class AddpostModel(models.Model):
 
     def __str__(self):
         return self.post_title
+
+class add_question(models.Model):
+    question=models.CharField(max_length=100)
+    question_des=models.TextField()
+    user_role=models.CharField(max_length=100)
+    tags=models.CharField(max_length=100 , null=True)
+    user_id=models.CharField(max_length=100 , null=True)
+    votecount=models.CharField(max_length=100 , null=True)
+    dislike=models.CharField(max_length=100 , null=True)
+    username=models.CharField(max_length=100 , null=True)
+
+    class Meta:
+        verbose_name_plural = 'Questions'
+        # Order the blog posts in reverse starting from the latest to the earliest
+        ordering = ('-question', )
+
+    def __str__(self):
+        return self.question
     

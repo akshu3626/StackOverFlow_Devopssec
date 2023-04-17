@@ -3,12 +3,16 @@ from .forms import SignUpForm, LoginForm
 from django.contrib.auth import login, authenticate , logout
 from django.contrib import messages
 from client.models import AddpostModel
+from client.models import add_question
+from django.contrib.auth import get_user_model
+
 # Create your views here.
 
 
 def index(request):
     Allposts=AddpostModel.objects.all()
-    return render(request, 'index.html' , {'Allposts' : Allposts})
+    Allquestions=add_question.objects.all()
+    return render(request, 'index.html' , {'Allposts' : Allposts , 'Allquestions' : Allquestions})
 
 
 def register(request):
@@ -29,6 +33,7 @@ def register(request):
 def login_view(request):
     form = LoginForm(request.POST or None)
     msg = None
+    print("into login in function")
     if request.method == 'POST':
         if form.is_valid():
             username = form.cleaned_data.get('username')
@@ -38,7 +43,7 @@ def login_view(request):
                 login(request, user)
                 return redirect('index')
             else:
-                msg= 'invalid credentials'
+                msg= 'Worng credential / Please check your credential'
         else:
             msg = 'error validating form'
     return render(request, 'login.html', {'form': form, 'msg': msg})
