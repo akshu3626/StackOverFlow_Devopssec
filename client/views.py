@@ -74,5 +74,26 @@ def allque(request):
      if request.user.is_authenticated and request.user.role == "User":
        viewAllquestions = add_question.objects.filter(user_id=request.user.id).values()
        return render(request, 'viewquestion.html' , {'viewAllquestions' : viewAllquestions})
-        
+     else:
+       return redirect('index')
 
+def update(request,id):
+    if request.user.is_authenticated and request.user.role == "User":
+       viewAllquestions = add_question.objects.get(id=id)
+       if request.method=="POST":
+          viewAllquestions.question = request.POST.get("question")
+          viewAllquestions.question_des = request.POST.get("question_des")
+          viewAllquestions.tags      = request.POST.get("tags")
+          viewAllquestions.save()
+          messages.success(request, "Data Updated")
+
+
+       return render(request, 'update.html' , {'viewAllquestions' : viewAllquestions})
+        
+def delete(request,id):
+     if request.user.is_authenticated:
+        deleteData = add_question.objects.get(id=id)
+        deleteData.delete()
+        messages.error(request, "Delete")
+        return redirect("/delete")
+     return render(request, 'viewquestion.html')

@@ -19,6 +19,19 @@ a.navbar-brand {
 ul.graphic-design a {
     text-transform: capitalize;
 }
+.curd-btn {
+    margin-top: 20px;
+    float: right;
+}
+.custom-btn-s {
+    background: #f48225;
+    border: #f48225;
+    text-transform: capitalize;
+}
+
+.custom-btn-s:hover {
+    background: black;
+}
 
 form.search-form {
     display: flex;

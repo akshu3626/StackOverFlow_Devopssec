@@ -61,11 +61,6 @@
                     Home 
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    About Us
-                  </a>
-                </li>
 
                 {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -75,7 +70,7 @@
 
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a href="#" class="nav-link">View Question</a>
+                      <a href="{% url 'allque' %}" class="nav-link">View Question</a>
                     </li>
                     <li class="nav-item">
                       <a href="{% url 'addquestion' %}" class="nav-link">Add Question</a>
@@ -104,11 +99,15 @@
                     </a>
                   {% endif %}
                   </li>
+                    {% if user.is_authenticated %}
+                 
+                 {% else%}
                   <li>
                     <a href="{% url 'signup' %}">
                       Sign up
                     </a>
                   </li>
+                  {% endif %}
                 </ul>
               </div>
             </div>

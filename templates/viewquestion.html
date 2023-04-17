@@ -4,6 +4,7 @@
 
 <div class="container mt-5">
       {% for Question in viewAllquestions %}
+          {% include 'message.html' %}
      <div class="single-qa-box like-dislike">
                     <div class="d-flex">
                       <div class="link-unlike flex-shrink-0">
@@ -29,24 +30,24 @@
                       <div class="flex-grow-1 ms-3">
                         <ul class="graphic-design">
                           <li>
-                            <a href="#">akshay joshi</a>
+                            <a href="#">{{Question.username}}</a>
                           </li>
                         </ul>
 
                         <h3>
                           <a href="queations-details.html">
-                           What is the requirement of a student's e-book for conducting educational activities?
+                          {{Question.question}}
                           </a>
                         </h3>
 
-                        <p> test</p>
+                        <p>   {{Question.question_des}}</p>
 
-                        HTML , CSS WordPress 
+                       {{Question.tags}}
                      <div class="d-flex justify-content-between align-items-center">
                           <ul class="anser-list">
                             <li>
                               <a href="#">
-                                0 Vote
+                                {{Question.votecount}} Vote
                               </a>
                             </li>
                             <li>
@@ -59,6 +60,13 @@
 
                          
                         </div>
+
+                        <div class="curd-btn">
+                          <a href="/update/{{Question.id}}" class="btn btn-success custom-btn-s"> Update</a>
+                          <a href="/delete/{{Question.id}}" class="btn btn-danger"> Delete</a>
+
+                        </div>
+
                       </div>
                     </div>
                   </div>

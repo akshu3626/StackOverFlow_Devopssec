@@ -12,7 +12,7 @@ phases:
       - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
   build:
     commands:
-      - pylint --disable=E0611,E0401,E1101,W0621,C0103,W0622,W0613,W0702,W0612,C0326,C0303,C0115,C0304,C0114,C0301,C0410,W0611 *.py **/*.py || true
+      - pylint --disable=C0410,W0611 *.py **/*.py || true
       - sonar-scanner -Dsonar.login=584d244ffb7cfe556e0a7a5cc3a2ce06bf4ef631 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=akshu3626 -Dsonar.organization=akshu3626 -DgeneratePom=true
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=akshu3626 >result.json
