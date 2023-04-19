@@ -95,5 +95,5 @@ def delete(request,id):
         deleteData = add_question.objects.get(id=id)
         deleteData.delete()
         messages.error(request, "Delete")
-        return redirect("/delete")
+        return redirect("/allque")
      return render(request, 'viewquestion.html')
